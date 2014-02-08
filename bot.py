@@ -1,11 +1,15 @@
 import time
 import praw
 import re
+import os
 from pprint import pprint
 
 re_ban = re.compile(r'ban', re.IGNORECASE)
 
 r = praw.Reddit(user_agent="BadBallBanBot/0.1 by /u/JJJollyjim")
+
+if not os.path.exists('.password'): open('.password', 'w').close()
+if not os.path.exists('.place_holder'): open('.place_holder', 'w').close()
 
 f = open(".password", "r")
 password = f.read(100)
