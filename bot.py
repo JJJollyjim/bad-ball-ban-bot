@@ -43,11 +43,12 @@ def handle_ratelimit(func, *args, **kwargs):
 			time.sleep(error.sleep_time)
 
 while True:
-	posts_gen = subreddit.get_new(place_holder=get_place_holder())
+	if get_place_holder() != "":
+		posts_gen = subreddit.get_new(place_holder=get_place_holder())
+	else:
+		posts_gen = subreddit.get_new()
+
 	posts = [post for post in posts_gen]
-
-	# print([post.title for post in posts])
-
 	posts.pop()
 
 	for post in reversed(posts):
@@ -56,6 +57,8 @@ while True:
 
 		if is_ban_appeal:
 			print("BAN | {0}".format(post.title))
+
+			# Comment on the post
 			handle_ratelimit(post.add_comment, ("Hi there, {0}!\n\n"
 				"This bot has detected that you have posted a ban appeal. \n\n"
 				"If this is correct, here are a few things you should know: \n\n"
