@@ -62,11 +62,11 @@ while True:
 					break
 
 			if found_bbbb:
-				print("BBBB| {0}".format(post.title))
+				print("BBBB| {0}".format(post.title.encode('unicode-escape')))
 				set_place_holder(post.id)
 				break
 
-			print("BAN | {0}".format(post.title))
+			print("BAN | {0}".format(post.title.encode('unicode-escape')))
 
 			# Comment on the post
 			comment = handle_ratelimit(post.add_comment, ("Hi there!\n\n"
@@ -90,7 +90,7 @@ while True:
 			
 			print("    - Comment succeeded!")
 		else:
-			print("    | {0}".format(post.title))
+			print("    | {0}".format(post.title.encode('unicode-escape')))
 
 		set_place_holder(post.id)
 	
