@@ -69,7 +69,7 @@ while True:
 			print("BAN | {0}".format(post.title))
 
 			# Comment on the post
-			comment = handle_ratelimit(post.add_comment, ("Hi there, {0}!\n\n"
+			comment = handle_ratelimit(post.add_comment, ("Hi there!\n\n"
 				"This bot has detected that you have posted a ban appeal. \n\n"
 				"If this is correct, here are a few things you should know: \n\n"
 				"* You have to be reported by 8 separate people within 24 hours to get banned, meaning you definitely did *something* wrong \n"
@@ -86,7 +86,7 @@ while True:
 				"--- \n\n"
 				"__Note:__ this bot is in beta. It may have decided that this post is a ban appeal by mistake. If so, please downvote this comment.\n\n"
 				"Click [here](http://www.reddit.com/message/compose/?to=JJJollyjim) to message the developer \n\n"
-			).format(post.author))
+			))
 			
 			print("    - Comment succeeded!")
 		else:
